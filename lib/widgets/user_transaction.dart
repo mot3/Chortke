@@ -24,7 +24,8 @@ class _UserTransactionsState extends State<UserTransactions> {
       date: DateTime.now(),
     ),
   ];
-
+  
+  // Create Transaction for app
   void _addNewTransacion(String txTitle, double txAmount) {
     final newTx = Transaction(
       title: txTitle,

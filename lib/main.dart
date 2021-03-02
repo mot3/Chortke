@@ -10,7 +10,7 @@ class Chortke extends StatelessWidget {
     return MaterialApp(
       title: 'Chortke',
       home: MyHomePage(),
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false, // To hide the debug banner
     );
   }
 }
@@ -27,12 +27,16 @@ class MyHomePage extends StatelessWidget {
               Icons.add,
               color: Colors.white,
             ),
-            onPressed: () {},
+            onPressed: () {}, // To open and close a new transaction
           ),
         ],
       ),
+      // To scroll the whole page and prevent the keyboard from bugging
       body: SingleChildScrollView(
         child: Column(
+
+          // TODO Leave a comment for the bottom two lines
+
           // mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -51,7 +55,7 @@ class MyHomePage extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () {}, // To open and close a new transaction
       ),
     );
   }
