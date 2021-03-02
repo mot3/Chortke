@@ -45,6 +45,7 @@ class MyHomePage extends StatelessWidget {
               child: Card(
                 color: Colors.yellow,
                 child: Text('CHART!'),
+                // To give height to the cards
                 elevation: 6,
               ),
             ),
