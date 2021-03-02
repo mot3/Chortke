@@ -23,6 +23,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+    
+  # I used this package to be able to write the dates in the transaction cards section regularly.
   intl: ^0.17.0
 
 
