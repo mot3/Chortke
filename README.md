@@ -2,8 +2,6 @@
 
 ## Description
 
-> First of all, I must say do not laugh at me because I am not very good English
-
 I am building an flutter app for daily income and expenses from one of the udemy trainings. I decided to put it in the GitHub for you with a strong document while learning it. I hope you like it and if you have an idea, add it or tell me.
 
 > I hope you will accompany and support me in this way.
