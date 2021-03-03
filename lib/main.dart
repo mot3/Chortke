@@ -1,6 +1,9 @@
+import 'package:chortke/widgets/transaction_list.dart';
 import 'package:flutter/material.dart';
 
-import './widgets/user_transaction.dart';
+import './widgets/new_transaction.dart';
+import './widgets/transaction_list.dart';
+import './models/transaction.dart';
 
 void main() => runApp(Chortke());
 
@@ -15,7 +18,48 @@ class Chortke extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  final List<Transaction> _userTransactions = [
+    Transaction(
+      id: 't1',
+      title: 'New Shows',
+      amount: 80,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Weekly Groceries',
+      amount: 40,
+      date: DateTime.now(),
+    ),
+  ];
+
+  // Create Transaction for app
+  void _addNewTransacion(String txTitle, double txAmount) {
+    final newTx = Transaction(
+      title: txTitle,
+      amount: txAmount,
+      date: DateTime.now(),
+      id: DateTime.now().toString(),
+    );
+
+    setState(() {
+      _userTransactions.add(newTx);
+    });
+  }
+
+  void _startAddNewTransaction(BuildContext ctx) {
+    showModalBottomSheet(
+      context: ctx,
+      builder: (_) => NewTransaction(_addNewTransacion),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,14 +71,14 @@ class MyHomePage extends StatelessWidget {
               Icons.add,
               color: Colors.white,
             ),
-            onPressed: () {}, // To open and close a new transaction
+            onPressed: () => _startAddNewTransaction(
+                context), // To open and close a new transaction
           ),
         ],
       ),
       // To scroll the whole page and prevent the keyboard from bugging
       body: SingleChildScrollView(
         child: Column(
-
           // TODO Leave a comment for the bottom two lines
 
           // mainAxisAlignment: MainAxisAlignment.start,
@@ -49,14 +93,15 @@ class MyHomePage extends StatelessWidget {
                 elevation: 6,
               ),
             ),
-            UserTransactions()
+            TransactionList(_userTransactions),
           ],
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () {}, // To open and close a new transaction
+        onPressed: () => _startAddNewTransaction(
+            context), // To open and close a new transaction
       ),
     );
   }
