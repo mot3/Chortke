@@ -24,6 +24,9 @@ class _NewTransactionState extends State<NewTransaction> {
       enteredTitle,
       eneterdAmount,
     );
+
+    // Closes automatically after data entry
+    Navigator.of(context).pop();
   }
 
   @override
