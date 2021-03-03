@@ -12,6 +12,10 @@ class Chortke extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Chortke',
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+        accentColor: Colors.amber,
+      ),
       home: MyHomePage(),
       debugShowCheckedModeBanner: false, // To hide the debug banner
     );
